@@ -71,23 +71,32 @@ const authController = {
       username: Joi.string().min(5).max(30).required(),
       password: Joi.string().pattern(passwordPattern).required(),
     });
+
     const { error } = userLoginSchema.validate(req.body);
     if (error) {
       return next(error);
     }
+
     const { username, password } = req.body;
 
     try {
       const user = await User.findOne({ username });
       if (!user) {
-        return next({ status: 401, message: "Invalid username or password" });
-      }
-      const isMatch = await bcrypt.compare(user.password, password);
-      if (!isMatch) {
-        return next({ status: 401, message: "Invalid username or password" });
+        return next({
+          status: 401,
+          message: "Invalid username or password",
+        });
       }
 
-      //Generate JWT Tokens
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return next({
+          status: 401,
+          message: "Invalid username or password",
+        });
+      }
+
+      // Generate JWT tokens
       const accessToken = JWTService.signAccessToken({ _id: user._id }, "30m");
       const refreshToken = JWTService.signRefreshToken(
         { _id: user._id },
@@ -96,15 +105,11 @@ const authController = {
 
       try {
         await RefreshToken.updateOne(
-          {
-            _id: user._id,
-          },
+          { _id: user._id },
           {
             token: refreshToken,
           },
-          {
-            upsert: true,
-          }
+          { upsert: true }
         );
       } catch (error) {
         return next(error);
@@ -120,7 +125,7 @@ const authController = {
         httpOnly: true,
       });
 
-      //response logic
+      // response logic follows
       const userDto = new UserDto(user);
       return res.status(200).json({ user: userDto, auth: true });
     } catch (error) {
