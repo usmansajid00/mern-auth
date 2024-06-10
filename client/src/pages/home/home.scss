@@ -1,0 +1,80 @@
+.home_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  max-width: 80%;
+  box-sizing: border-box;
+
+  // Heading Styles
+  .heading {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    color: royalblue;
+    margin-bottom: 30px;
+  }
+
+  // Logout Button Styles
+  .logout_btn {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.7em 1.4em 0.7em 1.1em;
+    color: white;
+    background: royalblue;
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    &:hover {
+      box-shadow: 0 0.5em 1.5em -0.5em royalblue;
+    }
+
+    &:active {
+      box-shadow: 0 0.3em 1em -0.5em royalblue;
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    margin: 10% auto;
+    padding: 15px;
+    max-width: 90%;
+
+    .heading {
+      font-size: 22px;
+    }
+
+    .logout_btn {
+      font-size: 14px;
+      padding: 0.6em 1.2em 0.6em 1em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 10% auto;
+    padding: 10px;
+    max-width: 95%;
+
+    .heading {
+      font-size: 20px;
+    }
+
+    .logout_btn {
+      font-size: 12px;
+      padding: 0.5em 1em 0.5em 0.9em;
+    }
+  }
+}

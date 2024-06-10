@@ -1,0 +1,66 @@
+.login_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  max-width: 80%;
+  box-sizing: border-box;
+
+  .login_heading {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    color: royalblue;
+    margin-bottom: 30px;
+  }
+
+  .login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .login_btn {
+      display: flex;
+      align-items: center;
+      font-family: inherit;
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 0.7em 1.4em 0.7em 1.1em;
+      color: white;
+      background: royalblue;
+      border: none;
+      box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+      letter-spacing: 0.05em;
+      border-radius: 20em;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+
+      &:hover {
+        box-shadow: 0 0.5em 1.5em -0.5em royalblue;
+      }
+
+      &:active {
+        box-shadow: 0 0.3em 1em -0.5em royalblue;
+      }
+    }
+  }
+
+  .account {
+    font-size: 15px;
+    .signup_navigate {
+      cursor: pointer;
+      color: royalblue;
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
