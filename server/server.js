@@ -8,7 +8,7 @@ import cors from "cors";
 
 const corsOptions = {
   credentials: true,
-  origin: ["http://localhost:5173/"],
+  origin: ["http://localhost:5173"],
 };
 
 const app = express();
