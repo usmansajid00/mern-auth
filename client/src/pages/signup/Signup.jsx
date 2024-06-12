@@ -93,7 +93,13 @@ const Signup = () => {
           error={formik.errors.email && formik.touched.email ? 1 : undefined}
           errormessage={formik.errors.email}
         />
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <TextInput
             type={showPassword ? "text" : "password"}
             name="password"
@@ -106,12 +112,28 @@ const Signup = () => {
               formik.errors.password && formik.touched.password ? 1 : undefined
             }
             errormessage={formik.errors.password}
+            style={{ paddingRight: "30px" }}
           />
-          <span style={{ fontSize: "20px" }} onClick={toggleShowPassword}>
+          <span
+            style={{
+              position: "absolute",
+              right: "10px",
+              cursor: "pointer",
+              fontSize: "20px",
+              paddingTop: "18px",
+            }}
+            onClick={toggleShowPassword}
+          >
             {showPassword ? <IoIosEyeOff /> : <IoMdEye />}
           </span>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <TextInput
             type={showConfirmPassword ? "text" : "password"}
             name="confirmPassword"
@@ -128,7 +150,13 @@ const Signup = () => {
             errormessage={formik.errors.confirmPassword}
           />
           <span
-            style={{ fontSize: "20px" }}
+            style={{
+              position: "absolute",
+              right: "10px",
+              cursor: "pointer",
+              fontSize: "20px",
+              paddingTop: "18px",
+            }}
             onClick={toggleShowConfirmPassword}
           >
             {showConfirmPassword ? <IoIosEyeOff /> : <IoMdEye />}

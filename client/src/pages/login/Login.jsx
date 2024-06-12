@@ -50,10 +50,10 @@ const Login = () => {
         />
         <div
           style={{
+            position: "relative",
             display: "flex",
             alignItems: "center",
           }}
-          className=""
         >
           <TextInput
             type={showPassword ? "text" : "password"}
@@ -68,7 +68,16 @@ const Login = () => {
             }
             errormessage={formik.errors.password}
           />
-          <span style={{ fontSize: "20px" }} onClick={toggleShowPassword}>
+          <span
+            style={{
+              position: "absolute",
+              right: "10px",
+              cursor: "pointer",
+              fontSize: "20px",
+              paddingTop: "18px",
+            }}
+            onClick={toggleShowPassword}
+          >
             {showPassword ? <IoIosEyeOff /> : <IoMdEye />}
           </span>
         </div>
